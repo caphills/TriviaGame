@@ -46,7 +46,7 @@ var questions = [{
 var game = {
 	correct: 0,
 	incorrect: 0,
-	counter: 120,
+	counter: 30,//change later to 120 or more
 	countdown: function(){
 		game.counter--;	
 		$('#counter').html(game.counter);
@@ -69,12 +69,12 @@ var game = {
 				$("#subcontainer").append("<input type='radio' name='question-"+i+"' value='"+questions[i].answers[j]+"'>"+questions[i].answers[j]);
 			}
 		}
-		$('subcontainer').append('<br><button id="end">DONE</button>')
+		$('#subcontainer').append('<br><button id="end">DONE</button>');
 	},
 // function to check @ of the question whether correct or not
 	done: function(){
 		$.each($("input[name='question-0']:checked"), function(){
-			if ($(this).val()===questions[0].correctAnswer){
+			if ($(this).val()==questions[0].correctAnswer){
 				game.correct++;
 			} else {
 				game.incorrect++;
@@ -82,7 +82,7 @@ var game = {
 		});
 
 		$.each($("input[name='question-1']:checked"), function(){
-			if ($(this).val()===questions[1].correctAnswer){
+			if ($(this).val()==questions[1].correctAnswer){
 				game.correct++;
 			} else {
 				game.incorrect++;
