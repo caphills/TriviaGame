@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Trivial Trivia Game</title>
+	<title>The Godfather 1 and 2 Trivial Game</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<!-- main container for items withing the game body -->
-	<div id="container">
-		<h1 id="title">Trivial Trivia Game</h1>
-		<!-- to add and remove the html elements -->
-		<div id="subcontainer">
+<!-- main container for items within the game body -->
+<div class="container-fluid mb-5">
+            <div id="container">
+              <div class="text-white p-3 m-0" style="font-family: 'Georgia', Times, Times New Roman, serif; background-color: #4aaaa5">
+					<h1 id="title">The Godfather 1 and 2 Trivia Game</h1>
+				</div>
+			</div>
+
+	<!-- to add and remove the html elements -->
+	<div id="subcontainer">
+		<div class="row">
+			<div class="col-md-4">
+				<button id="start">Start</button> 
+			</div>
+			<div class="row-col-md-4"> 
+			<div id="dons"></div>
+			<img src="assets/images/dons.jpg" alt="The Godfather pic" width="300" height="200">
+			</div>
+
+		  	<div class="row-col-md-4">
+		  		<img src="assets/images/horhead.jpg" alt="horse head pic" width="300" height="200">
+	  		</div>
 		</div>
 	</div>
-	<button id="start">Start</button>
+</div>
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
  <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>

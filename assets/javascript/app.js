@@ -4,7 +4,7 @@ $('#start').on('click',function() {
 	game.start();
 })
 
-$(document).on('click','#end',function(){
+$(document).on('click','#endGame',function(){
 	game.done();
 })
 
@@ -13,7 +13,7 @@ var questions = [{
 	answers: ["Carlo", "Santino", "Tito", "Vito"],
 	correctAnswer: "Vito"
 }, {
-// check answer for T or F if needs Boolian statement?
+// check w/my TA if answer for if needs Boolian statement?
 	question: "The first movie opens with Don Corleone conducting business during the wedding of his only daughter",
 	answers: ["True", "False"],
 	correctAnswer:  "True"
@@ -40,13 +40,17 @@ var questions = [{
 	question: "What was Vito's last name when he was born?",
 	answers: ["Bambino", "Andolini", "Corleone","Fennucci"],
 	correctAnswer:  "Andolini"
+},{
+	question: "Who is the oldest child of the Godfather?",
+	answers: ["Michael", "Connie", "Sonny","Fredo"],
+	correctAnswer:  "Sonny"
 }];
 
 // game object
 var game = {
 	correct: 0,
 	incorrect: 0,
-	counter: 30,//change later to 120 or more
+	counter: 60,//might change later to 110 or more if i add more questions
 	countdown: function(){
 		game.counter--;	
 		$('#counter').html(game.counter);
@@ -58,7 +62,7 @@ var game = {
 	// function
 	start: function(){
 		timer = setInterval(game.countdown,1000);
-		$('#subcontainer').prepend('<h2>Time Remaining: <span id="counter">120</span> Seconds</h2>');
+		$('#subcontainer').prepend('<h2>Time Remaining: <span id="counter">50</span> Seconds</h2>');
 		$('#start').remove(); 
 		// for loop functions
 		for(var i=0; i<questions.length;i++){
@@ -69,12 +73,12 @@ var game = {
 				$("#subcontainer").append("<input type='radio' name='question-"+i+"' value='"+questions[i].answers[j]+"'>"+questions[i].answers[j]);
 			}
 		}
-		$('#subcontainer').append('<br><button id="end">DONE</button>');
+		$('#subcontainer').append('<hr><button id="endGame">DONE</button>');
 	},
 // function to check @ of the question whether correct or not
 	done: function(){
 		$.each($("input[name='question-0']:checked"), function(){
-			if ($(this).val()==questions[0].correctAnswer){
+			if ($(this).val()===questions[0].correctAnswer){
 				game.correct++;
 			} else {
 				game.incorrect++;
@@ -82,7 +86,7 @@ var game = {
 		});
 
 		$.each($("input[name='question-1']:checked"), function(){
-			if ($(this).val()==questions[1].correctAnswer){
+			if ($(this).val()===questions[1].correctAnswer){
 				game.correct++;
 			} else {
 				game.incorrect++;
@@ -129,6 +133,14 @@ var game = {
 			}
 		});
 
+		$.each($("input[name='question-7']:checked"), function(){
+			if ($(this).val()===questions[7].correctAnswer){
+				game.correct++;
+			} 	else {
+				game.incorrect++;
+			}
+		});
+
 		this.result();
 		},
 		//print results for the game
@@ -139,6 +151,6 @@ var game = {
 		$('#subcontainer').html("<h2>All done!<h2>");
 		$('#subcontainer').append("<h3>Correct Answers: "+this.correct+"</h3>");
 		$('#subcontainer').append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
-		$('#subcontainer').append("<h3>Unanswered: "+(questions.length (this.incorrect+this.correct))+"</h3>");
+		$('#subcontainer').append("<h3>Unanswered: "+(questions.length-(this.incorrect+this.correct))+"</h3>");
 	}
 }
