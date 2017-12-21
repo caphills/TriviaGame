@@ -1,6 +1,6 @@
 body {
     text-align: left; 
-   background-image: url(assets/images/dons.jpg);
+ /*  background-image: url(assets/images/dons.jpg);*/
   
 }
 #container {
@@ -24,30 +24,3 @@ color: white; font-weight: bold;
 }
 /*image for background not working*/
 /* background-image: url("../assets/images/dons.jpg");*/
-
-html, body { margin: 0; height: 100%; }
-
-body {
-  display: table;
-  width: 100%;
-  height: 100%;
-}
-header, footer {
-  display: table-row;
-  height: 0;
-}
-main {
-  display: table-row;
-}
-header > div {
-  padding: 10px;
-  background-color: #000;
-  color: #fff
-}
-main > div {
-  padding: 10px;
-  background-color: #ddd;
-}
-footer > div {
-  padding: 10px;
-}
